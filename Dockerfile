@@ -2,7 +2,7 @@ FROM qnib/terminal
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
 ## 
-RUN yum install -y postgresql-server
+RUN yum install -y postgresql-server uuid-pgsql postgresql-contrib
 RUN su -l -c "pg_ctl -c initdb" postgres
 ADD etc/supervisord.d/postgres.ini /etc/supervisord.d/
 ADD var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/
